@@ -146,20 +146,33 @@
           </h5>
           <dl :class="$style.contact">
             <div>
-              <dt>{{ $t('毎日（24時間）') }}</dt>
-              <dd :class="$style.overrideExternalLink">
-                <i18n path="{publicHealthCenter}に掲載しています">
-                  <template v-slot:publicHealthCenter>
-                    <router-link to="/consultations">
-                      {{ $t('各保健所の電話番号は相談窓口一覧へ') }}
-                    </router-link>
-                  </template>
-                </i18n>
+              <dt>{{ $t('平日') }} 9:00 - 17:00：{{$t('受診・相談センター(各保健所)の電話番号は')}} </dt>
+              <dd>
+                <router-link to="/consultations">
+                  <div :class="$style.tel">
+                    <icon-phone :class="$style.icon" aria-hidden="true" />
+                    {{ $t('相談窓口一覧へ') }}
+                  </div>
+                </router-link>
               </dd>
             </div>
+
             <div>
               <dt>
-                {{ $t('在住外国人 平日と日曜 9 AM - 6 PM') }} {{ $t('岐阜県外国人相談センター') }}
+                {{ $t('平日（夜間）')}}{{$t('17:00 - 翌9:00') }}・{{$t('土日祝日')}}：{{ $t('受診・相談センター休日夜間窓口へ') }}
+              </dt>
+              <dd>
+                <a :class="$style.tel" href="tel:058-272-8860">
+                  <icon-phone :class="$style.icon" aria-hidden="true" />
+                  058-272-8860</a
+                >
+              </dd>
+
+            </div>
+
+            <div>
+              <dt>
+                {{ $t('在住外国人 平日と日曜 9 AM - 6 PM') }}：{{ $t('岐阜県外国人相談センター') }}
               </dt>
               <dd>
                 <a :class="$style.tel" href="tel:058-263-8066">
