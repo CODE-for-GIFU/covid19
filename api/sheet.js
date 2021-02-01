@@ -32,12 +32,12 @@ class SheetApi {
       .catch(e => ({ error: e }));
   }
 
-  graphMainSummary(inspections_sum) {
+  graphMainSummary() {
     //cacheに存在すれば、cacheからloadする
     if (this.cache.graphMainSummary) return this.loadCache(this.cache.graphMainSummary);
     return axios.get(`${this.apiBase}/1iQaK7yERA2tIfcz2Tl1OHibjoq4ZRZXqK-EYx7pj-e0/9/public/values?alt=json`)
       .then((res) => {
-        const items = { '検査実施件数': inspections_sum, '陽性患者数': 0, '入院中': 0, '軽症・中等症': 0, '重症': 0, '退院': 0, '死亡': 0 }
+        const items = { '陽性患者数': 0, '入院中': 0, '軽症・中等症': 0, '重症': 0, '退院': 0, '死亡': 0 }
         const values = Object.values(res.data.feed.entry)
         values.forEach((value) => {
           items['陽性患者数'] = Number(value.gsx$陽性患者数.$t)
@@ -50,8 +50,6 @@ class SheetApi {
 
         const main_summary = {
           data: {
-            attr: '検査実施件数',
-            value: items['検査実施件数'],
             children: [
               {
                 attr: '陽性患者数',
@@ -171,14 +169,15 @@ class SheetApi {
         const values = Object.values(res.data.feed.entry)
         values.forEach((value) => {
           const item = {
-            No: value.gsx$no.$t,
+            // No: value.gsx$no.$t,
             リリース日: dayjs(value.gsx$公表年月日.$t, 'YYYY-MM-DD').format() ?? '不明',
             // 曜日: value.gsx$曜日.$t,
             居住地: value.gsx$患者居住地.$t,
             年代: value.gsx$患者年代.$t,
             性別: value.gsx$患者性別.$t,
-            備考: value.gsx$備考.$t,
-            退院: value.gsx$退院済フラグ.$t,
+            // 備考: value.gsx$備考.$t,
+            退院: (value.gsx$退院済フラグ.$t === "1") ? '済' : '',
+            検査地: (/県外/.test(value.gsx$no.$t)) ? '他自治体' : '県内'
           }
           items.push(item)
         });

@@ -37,6 +37,7 @@
           padding: 8px 10px;
           height: auto;
           font-size: 12px;
+          white-space: nowrap;
         }
         &:nth-child(odd) {
           td {

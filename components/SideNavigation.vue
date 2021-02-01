@@ -143,7 +143,7 @@ export default {
         {
           title: this.$t('About COVID-19 countermeasure information'),
           link:
-            'https://www.pref.gifu.lg.jp/kinkyu-juyo-joho/shingata_corona.html'
+            'https://www.pref.gifu.lg.jp/site/covid19/'
         },
         {
           title: this.$t('Cancelled public events'),
