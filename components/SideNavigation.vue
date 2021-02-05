@@ -130,24 +130,9 @@ export default {
           divider: true
         },
         {
-          icon: 'mdi-domain',
-          title: this.$t('for Business person'),
-          link: this.localePath('/worker')
-        },
-        {
-          icon: 'mdi-home-city',
-          title: this.$t('for Lodging business'),
-          link: this.localePath('/lodging'),
-          divider: true
-        },
-        {
           title: this.$t('About COVID-19 countermeasure information'),
           link:
             'https://www.pref.gifu.lg.jp/site/covid19/'
-        },
-        {
-          title: this.$t('Cancelled public events'),
-          link: 'https://www.pref.gifu.lg.jp/site/covid19/26717.html'
         },
         {
           title: this.$t('Government official website'),
@@ -186,7 +171,8 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &:focus {
