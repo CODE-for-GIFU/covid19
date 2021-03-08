@@ -194,7 +194,7 @@ export default {
       })
       await sheetApi.graphMainSummary().then(response => {
         this.getConfirmedData(response)
-        this.headerItem.date = response.last_update
+        this.headerItem.date = response.last_update_summary
       })
       await sheetApi.getPatientsSummary().then(response => {
         this.getPatientsData(response)

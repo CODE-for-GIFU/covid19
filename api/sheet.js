@@ -95,9 +95,12 @@ class SheetApi {
               }
             ]
           },
-          last_update: dayjs(values[values.length - 1].updated.$t).format(
+          last_update: dayjs(values[0].gsx$lastupdated.$t).format(
             'YYYY/MM/DD HH:mm'
-          )
+          ),
+          last_update_summary: dayjs(
+            values[0].gsx$lastupdatedsummary.$t
+          ).format('YYYY/MM/DD HH:mm')
         }
         this.cache.graphMainSummary = mainSummary // cacheへ格納
         return mainSummary
@@ -203,7 +206,7 @@ class SheetApi {
         })
         const patients = {
           data: items,
-          last_update: dayjs(values[values.length - 1].updated.$t).format(
+          last_update: dayjs(values[0].gsx$lastupdated.$t).format(
             'YYYY/MM/DD HH:mm'
           ),
           date: dayjs(values[values.length - 1].updated.$t).format('YYYY/MM/DD')
@@ -248,7 +251,7 @@ class SheetApi {
         }, [])
         const patientsSummary = {
           data: this.addPaddingDay2Summary(group),
-          last_update: dayjs(values[values.length - 1].updated.$t).format(
+          last_update: dayjs(values[0].gsx$lastupdated.$t).format(
             'YYYY/MM/DD HH:mm'
           )
         }
@@ -308,7 +311,7 @@ class SheetApi {
         })
         const inspectionsSummary = {
           data: items,
-          last_update: dayjs(values[values.length - 1].updated.$t).format(
+          last_update: dayjs(values[0].gsx$lastupdated.$t).format(
             'YYYY/MM/DD HH:mm'
           )
         }
@@ -339,7 +342,7 @@ class SheetApi {
         })
         const callcenterSummary = {
           data: items,
-          last_update: dayjs(values[values.length - 1].updated.$t).format(
+          last_update: dayjs(values[0].gsx$lastupdated.$t).format(
             'YYYY/MM/DD HH:mm'
           )
         }
@@ -370,7 +373,7 @@ class SheetApi {
         })
         const advicecenterSummary = {
           data: items,
-          last_update: dayjs(values[values.length - 1].updated.$t).format(
+          last_update: dayjs(values[0].gsx$lastupdated.$t).format(
             'YYYY/MM/DD HH:mm'
           )
         }
