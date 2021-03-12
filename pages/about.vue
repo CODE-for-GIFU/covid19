@@ -98,6 +98,16 @@
       >{{ $t('をご確認ください。')}}
     </TextCard>
     <TextCard title="お問い合わせについて">
+      <p>{{ $t('過去にいただいたご質問等の内容は、次のURLにてご確認いただけます。')}}<br/>
+      {{ $t('お問い合わせの前にご確認ください。')}}<br/>
+        <a
+          href="https://github.com/CODE-for-GIFU/covid19/issues?q=label%3Acontact"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ $t('お問い合わせ対応状況')}}
+        </a>
+      </p>
       {{ $t('当サイトへの改善のご要望・お問い合わせは、こちらのフォームにお願いします。')}}<br/>
       <a
         href="https://forms.gle/VBeVXFY8EQD6uJ6e7"
